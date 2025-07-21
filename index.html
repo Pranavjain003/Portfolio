@@ -3,208 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pranav Jain - Software Developer Portfolio">
+    <meta name="keywords" content="software developer, web development, AI, machine learning">
     <title>Pranav • Portfolio</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/1551dbdcbe.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Hero Section -->
     <div id="header">
         <div class="container">
             <nav>
-                <img src="./images/logo.png" class="logo">
+                <span class="logo">PORTFOLIO<span class="logo-accent"></span></span>
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                    <i class="fa-solid fa-xmark" id="closemenu" onclick="closemenu()"></i>
                 </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                <i class="fa-solid fa-bars" id="openmenu" onclick="openmenu()"></i>
             </nav>
-            <div class="header-text">
 
-                <h1><span class="intro"><br><br>Hi there, I'm </span><span class="myname"><br>Pranav Jain</span></h1>
-                <p class="job">Software Developer</p>
-                <p class="desc">Enthusiastic about pushing the boundaries of web and software development, deeply committed to crafting visually captivating and interactive experiences that resonate with users across diverse platforms.</p>
-            </div>
-            <a href="https://drive.google.com/file/d/1jze9RxSFGVK1uK6BrDh9W6wrBv__LUnZ/view" class="btn btn2">Resume</a>
-            <div class="connect">
-                <p>Let's Connect: </p>
-                <a href= "mailto: pranavjain003@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/pranav-jain-11852721a/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/pranavjain003"><i class="fa-brands fa-github"></i></a>
+            <div class="header-hero">
+                <div class="header-text">
+                    <div class="greeting">
+                        <span class="emoji">👋</span>
+                        <span class="greeting-text">Hi there, I'm</span>
+                    </div>
+                    <h1 class="name">Pranav Jain</h1>
+                    <div class="role-container">
+                        <span class="role-prefix">I'm a</span>
+                        <div class="roles">
+                            <span class="role">Software Developer</span>
+                            <span class="role">Full Stack Engineer</span>
+                            <span class="role">Problem Solver</span>
+                            <span class="role">Tech Enthusiast</span>
+                        </div>
+                    </div>
+                    <p class="desc">Enthusiastic about pushing the boundaries of web and software development, deeply committed to crafting visually captivating and interactive experiences that resonate with users across diverse platforms.</p>
+                    <div class="cta-group">
+                        <a href="https://drive.google.com/file/d/1jze9RxSFGVK1uK6BrDh9W6wrBv__LUnZ/view" class="btn primary-btn">
+                            <span>View Resume</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn secondary-btn">
+                            <span>See My Work</span>
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                    <div class="tech-stack-brief">
+                        <span class="tech-stack-title">Tech Stack |</span>
+                        <div class="tech-icons">
+                            <i class="fab fa-react" title="React"></i>
+                            <i class="fab fa-node-js" title="Node.js"></i>
+                            <i class="fab fa-python" title="Python"></i>
+                            <i class="fab fa-js" title="JavaScript"></i>
+                            <i class="fab fa-html5" title="HTML5"></i>
+                            <i class="fab fa-css3-alt" title="CSS3"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="shape-blob"></div>
+                    <div class="shape-blob"></div>
+                    <div class="profile-container">
+                        <img src="./images/Profile.png" alt="Pranav Jain" class="profile-img">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-<!-----------------about------------------->
+
+    <!-- About section -->
     <div id="about">
         <div class="container">
             <div class="row">
-                <div class="about-col1">
-                    <img src="./images/Profile.png" class="Profile">
+                <div class="about-col1" data-aos="fade-right">
+                    <img src="./images/Profile.png" class="Profile" alt="Profile Picture">
                 </div>
-                <div class="about-col2">
+                <div class="about-col2" data-aos="fade-left">
                     <h1 class="subtitle">About Me</h1>
-                    <p>Aspiring Computer Science Engineer with a strong foundation in data structures, algorithms, and software 
-                        development. Experienced in developing web applications , with a keen interest in artificial intelligence 
-                        and machine learning. Proven ability to work collaboratively in team environments and deliver high-quality 
-                        projects. <br>
-                        Let's connect</p>                    
+                    <p>Computer Science Engineering student at Thapar Institute of Engineering and Technology with a strong foundation in data structures, algorithms, and software development. Experienced in developing web applications, with expertise in AI/ML and data science. Proven ability to work collaboratively in team environments and deliver high-quality projects.</p>
                     <div class="tabtitle">
                         <p class="tablinks active" onclick="opentab('Skills')">Skills</p>
-                        <!-- <p class="tablinks" onclick="opentab('Experience')">Experience</p> -->
+                        <p class="tablinks" onclick="opentab('Experience')">Experience</p>
                         <p class="tablinks" onclick="opentab('Education')">Education</p>
                     </div>
                     <div class="tabcontents activetab" id="Skills">
                         <ul>
-                            <li><span>IT Skills:</span><br> C, C++, DSA, HTML, CSS, Javascript, ReactJs, SQL, Python</li>
-                            <li><span>Soft Skills</span><br>Leadership Quality, Good Communication skills, Time Management, Negotiation</li>
-                            <li><span>Languages</span><br>English, Hindi, Punjabi</li>
+                            <li><span>Programming Languages:</span><br>C, C++, Python, R, JavaScript, SQL</li>
+                            <li><span>Web & Database:</span><br>React, Node.js, MongoDB, HTML, CSS</li>
+                            <li><span>Tools & Frameworks:</span><br>Arduino, OpenGL, OpenCV, Git, VS Code</li>
                         </ul>
                     </div>
-                    <!-- <div class="tabcontents" id="Experience">
+                    <div class="tabcontents" id="Experience">
                         <ul class="exp">
-                            <li>Web Development Intern,<br><span>May 2024 - June 2024</span> <br> Bharat Intern</li>
-                            <li>Social Media Marketing Intern,<br><span>Sept 2021 - Oct 2021</span> <br> MechoMotive</li>
+                            <li><span>Data Science Intern</span><br>Jun 2025 - Jul 2025<br>Medlr Solutions Private Limited, Chandigarh</li>
+                            <li><span>Project Intern</span><br>Jun 2025 - Jul 2025<br>Experimental Learning Centre, TIET Patiala</li>
+                            <li><span>Research Intern</span><br>Sep 2024 - May 2025<br>Samsung R&D Institute India, Bangalore</li>
                         </ul>
-                    </div> -->
+                    </div>
                     <div class="tabcontents" id="Education">
                         <ul class="edu">
-                            <li>B.E. Computer Engineering,<br><span>Sep 2022 - Jul 2026</span><br>Thapar Institute of Engineering and Technology, Patiala<br><span>CGPA: 9.43</span></li>
-                            <li>Class XII Board, Non-Medical,<br><span>Mar 2020 - Mar 2021</span><br>Sohrab Public School, Malerkotla<br><span>Percentage: 94.4%</span></li>
-                            <li>Class X Board,<br><span>Mar 2018 - Mar 2019</span><br>Sarvhitkari Vidya Mandir, Malerkotla<br><span>Percentage: 92.2%</span></li>
+                            <li><span>B.E. Computer Engineering</span><br>Sep 2022 - Jul 2026<br>Thapar Institute of Engineering and Technology, Patiala<br>CGPA: 9.37</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!----------------------My Projects--------------------->
+
     <div id="projects">
         <div class="container">
-            <h1 class="subtitle">My Projects</h1>
+            <h1 class="subtitle" data-aos="fade-up">My Projects</h1>
             <div class="projectlist">
-                <div class="proj">
-                    <img src="images/cartoon.jpeg">
+                <div class="proj" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1600267185393-e158a98703de?q=80&w=2070&auto=format&fit=crop" alt="Venture Swipe Project">
                     <div class="layer">
-                        <h3>Cartoonizing Real World </h3>
-                        <p>A project utilizing OpenCV: Engage in a fun activity with this project.</p>
-                        <a href="#" class=><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="proj">
-                    <img src="images/food.png">
-                    <div class="layer">
-                        <h3>Food In One App</h3>
-                        <p>Savor Culinary Delights: Explore Flavors with Our All-in-One Food App Powered by Real-Time Recipe and Dining Data</p>
+                        <h3>Venture Swipe</h3>
+                        <p>A full-stack networking platform enabling interest-based matching between entrepreneurs, founders, and enthusiasts. Built with React.JS, Node.js, MongoDB.</p>
+                        <div class="tech-stack">
+                            <span>React.JS</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                </div> 
-                <div class="proj">
-                    <img src="images/amazon.png">
+                </div>
+                <div class="proj" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" alt="Image Quality Evaluation System">
                     <div class="layer">
-                        <h3>Amazon clone</h3>
-                        <p>Dive into Experience: Experience the Ease of Shopping with Our Responsive Amazon Clone</p>
+                        <h3>Image Quality Evaluation System</h3>
+                        <p>Automated image evaluation pipeline comparing Galaxy Enhance-X with commercial apps. Built with Django and advanced image processing techniques.</p>
+                        <div class="tech-stack">
+                            <span>Django</span>
+                            <span>OpenCV</span>
+                            <span>Python</span>
+                        </div>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                </div>  
+                </div>
+                <div class="proj" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Topsis Package">
+                    <div class="layer">
+                        <h3>Topsis Package</h3>
+                        <p>Python package for multi-criteria decision-making with Flask-based web interface and automated email reporting system.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>Pandas</span>
+                        </div>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="proj" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop" alt="Calorie Detection System">
+                    <div class="layer">
+                        <h3>Calorie Detection System</h3>
+                        <p>Automated calorie detection system using YOLOv5 and EasyOCR, achieving 60% accuracy in extracting calorie information from food labels.</p>
+                        <div class="tech-stack">
+                            <span>YOLOv5</span>
+                            <span>Flask</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
             </div>
-            <a href="#" class="btn">See More</a>
         </div>
     </div>
-<!-------------------------Certificates----------------------->
-    <div id="certificates">
-        <div class="container">
-            <h1 class="subtitle">My Certificates</h1>
-            <div class="certificatelist">
-                <div>
-                    <i class="fa-solid fa-circle-nodes"></i>
-                    <h2>HTML & CSS BootCamp <a href="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h2>
-                </div>
-                <div>
-                    <i class="fa-brands fa-figma"></i>
-                    <h2>Goldman-Sachs Software Engineering <a href="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h2>
-                </div>
-                <!-- <div>
-                    <i class="fa-brands fa-html5"></i>
-                    <h2>Introduction of Html5 and CSS3 <a href="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h2>
-                </div> -->
-                <!-- <div>
-                    <i class="fa-solid fa-chart-pie"></i>
-                    <h2>Graph Theory Programming Camp <a href="https://drive.google.com/file/d/1lJwjdeIuguCwrla95hvubvMaEJhsgLWD/view?usp=sharing"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h2>
-                </div> -->
-            </div>
-            <a href="#" class="btn">See More</a>
-        </div>
-    </div>
-<!-------------------------Contact-------------------->
+
+    <!-- Contact Section -->
     <div id="contact">
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 clas="subtitle">Contact Me</h1>
+                    <h1 class="subtitle">Contact Me</h1>
                     <h2>Let's Work Together</h2>
-                    <p>Excited to begin your web project? Let's collaborate to bring your vision to life.</p>
+                    <p>Excited to begin your next project? Let's collaborate to bring your vision to life.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:pranavjain003@gmail.com">pranavjain003@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:+919478161470">+91-9478161470</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>Malerkotla, Punjab</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
+                        <button type="submit" class="btn btn2">Send Message</button>
                     </form>
                     <span id="msg"></span>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>Copyright © 2024 Pranav Jain | All Rights Reserved</p>
-        </div>
     </div>
-    <script>
-        var tablinks= document.getElementsByClassName("tablinks");
-        var tabcontents= document.getElementsByClassName("tabcontents");
 
-        function opentab(tabname){
-            for(tablink of tablinks){
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="mailto:pranavjain003@gmail.com" class="social-link">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/pranav-jain-11852721a/" class="social-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/pranavjain003" class="social-link">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            <div class="footer-nav">
+                <a href="#header">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2024 Pranav Jain | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Text animation
+        const nameAnimation = document.querySelector('.name-animation');
+        gsap.from(nameAnimation, {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out",
+            delay: 0.5
+        });
+
+        // Job title glitch effect
+        const glitchText = document.querySelector('.glitch-text');
+        setInterval(() => {
+            glitchText.classList.add('glitch');
+            setTimeout(() => {
+                glitchText.classList.remove('glitch');
+            }, 200);
+        }, 3000);
+
+        // 3D Scene
+        function init3DScene() {
+            const container = document.getElementById('hero-3d');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            // Create floating geometry
+            const geometry = new THREE.IcosahedronGeometry(1, 0);
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x00b4d8,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.8
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            // Add lights
+            const light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(1, 1, 1);
+            scene.add(light);
+            scene.add(new THREE.AmbientLight(0x404040));
+
+            camera.position.z = 5;
+
+            // Animation
+            function animate() {
+                requestAnimationFrame(animate);
+                mesh.rotation.x += 0.01;
+                mesh.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+
+        // Initialize 3D scene
+        init3DScene();
+    </script>
+    <script>
+        // Initialize cursor
+        const cursor = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        document.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursor.style.left = `${posX}px`;
+            cursor.style.top = `${posY}px`;
+
+            // Add slight delay to outline for smooth effect
+            setTimeout(() => {
+                cursorOutline.style.left = `${posX}px`;
+                cursorOutline.style.top = `${posY}px`;
+            }, 80);
+        });
+
+        // Add hover effect for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .btn, .tablinks, .social-link');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                cursorOutline.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                cursorOutline.classList.remove('cursor-hover');
+            });
+        });
+
+        // Tab switching functionality
+        const tablinks = document.getElementsByClassName("tablinks");
+        const tabcontents = document.getElementsByClassName("tabcontents");
+
+        function opentab(tabname) {
+            // Remove active class from all tabs
+            for(let tablink of tablinks) {
                 tablink.classList.remove("active");
             }
-            for(tabcontent of tabcontents){
+            // Hide all tab contents
+            for(let tabcontent of tabcontents) {
                 tabcontent.classList.remove("activetab");
             }
+            // Add active class to clicked tab
             event.currentTarget.classList.add("active");
+            // Show selected tab content
             document.getElementById(tabname).classList.add("activetab");
         }
-    </script>
 
-    <script>
-        var sidemeu=document.getElementById("sidemenu");
-        function openmenu(){
-            sidemeu.style.right="0";
+        // Mobile menu functionality
+        const sidemenu = document.getElementById("sidemenu");
+        const openmenuIcon = document.getElementById("openmenu");
+        const closemenuIcon = document.getElementById("closemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+            openmenuIcon.style.display = "none";
+            closemenuIcon.style.display = "block";
         }
-        function closemenu(){
-            sidemeu.style.right="-200px";
+
+        function closemenu() {
+            sidemenu.style.right = "-220px";
+            openmenuIcon.style.display = "block";
+            closemenuIcon.style.display = "none";
+        }
+
+        // Initialize menu state
+        function setMenuIcons() {
+            if (window.innerWidth > 600) {
+                openmenuIcon.style.display = "none";
+                closemenuIcon.style.display = "none";
+                sidemenu.style.right = "0";
+            } else {
+                openmenuIcon.style.display = "block";
+                closemenuIcon.style.display = "none";
+                sidemenu.style.right = "-220px";
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('resize', setMenuIcons);
+        window.addEventListener('DOMContentLoaded', () => {
+            setMenuIcons();
+            // Set initial active tab
+            document.querySelector('.tablinks').classList.add('active');
+            document.querySelector('.tabcontents').classList.add('activetab');
+        });
+
+        // Form submission
+        const scriptURL = 'https://script.google.com/macros';
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg");
+
+        if(form) {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        msg.innerHTML = "Message sent successfully!";
+                        setTimeout(() => {
+                            msg.innerHTML = "";
+                        }, 5000);
+                        form.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        msg.innerHTML = "Something went wrong. Please try again.";
+                    });
+            });
         }
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        const scriptURL = 'https://script.google.com/macros'
-        const form = document.forms['submit-to-google-sheet']
-        const msg= document.getElementById("msg")
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML = "Message sent successfully!"
-                setTimeout(function(){
-                    msg.innerHTML=""
-                },5000)
-                form.reset()
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
+        // Minimal, faint particles config
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {"value": 18, "density": {"enable": true, "value_area": 1200}},
+            "color": {"value": ["#00b4d8", "#48cae4"]},
+            "shape": {"type": "circle"},
+            "opacity": {"value": 0.12, "random": true},
+            "size": {"value": 2, "random": true},
+            "line_linked": {"enable": false},
+            "move": {"enable": true, "speed": 0.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false}
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {"onhover": {"enable": false}, "onclick": {"enable": false}},
+            "modes": {}
+          },
+          "retina_detect": true
+        });
     </script>
 </body>
 </html>
